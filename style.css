@@ -14,7 +14,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 15px;
-  width: 350px;
+  width: 380px;
   position: relative;
 }
 
@@ -24,11 +24,12 @@ body {
   margin: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   color: white;
   background: linear-gradient(90deg, #ff9966, #ff5e62);
   transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 #menu button:hover {
   transform: scale(1.05);
@@ -48,16 +49,12 @@ body {
   animation: pulse 2s infinite;
 }
 
-.powered-box p {
-  margin: 0;
-}
-
 .powered-box strong {
   color: #ffe600;
   font-size: 24px;
 }
 
-/* Quiz Question Box */
+/* Question Box */
 #question {
   margin: 20px 0;
   padding: 15px;
@@ -87,13 +84,29 @@ body {
   background: linear-gradient(135deg, #4facfe, #f5576c, #f093fb);
 }
 
-/* Choices Buttons */
-.choices { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+/* Choice Buttons Default */
 .choice-btn {
-  background: #444; padding: 10px; border-radius: 8px; cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #28a745, #43e97b);
   transition: 0.3s ease;
 }
-.choice-btn:hover { background: #666; transform: scale(1.05); }
+.choice-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Correct & Wrong States */
+.choice-btn.correct {
+  background: linear-gradient(135deg, #ffdd00, #fbb034);
+  color: #222;
+}
+.choice-btn.wrong {
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+}
 
 /* Score Text */
 .score { margin-top: 20px; font-size: 18px; }
@@ -103,4 +116,4 @@ body {
   0% { box-shadow: 0 0 10px #f093fb; }
   50% { box-shadow: 0 0 20px #f5576c; }
   100% { box-shadow: 0 0 10px #4facfe; }
-                              }
+}
