@@ -78,6 +78,7 @@ function nextQuestion() {
 
   usedQuestions.push(q);
   currentQuestion = q;
+
   document.getElementById('question').innerText = q.jp;
 
   let choices = [q.meaning];
@@ -93,19 +94,22 @@ function nextQuestion() {
     let btn = document.createElement('button');
     btn.innerText = choice;
     btn.className = "choice-btn";
-    btn.onclick = () => checkAnswer(choice);
+    btn.onclick = () => checkAnswer(btn, choice);
     choiceContainer.appendChild(btn);
   });
 
   updateScore();
 }
 
-function checkAnswer(choice) {
+function checkAnswer(button, choice) {
+  const allButtons = document.querySelectorAll(".choice-btn");
+  allButtons.forEach(btn => btn.disabled = true);
+
   if (choice === currentQuestion.meaning) {
-    alert("✔ မှန်တယ်!");
+    button.classList.add("correct");
     score++;
   } else {
-    alert("❌ မှားတယ်!");
+    button.classList.add("wrong");
   }
   updateScore();
 }
